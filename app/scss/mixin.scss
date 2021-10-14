@@ -1,0 +1,28 @@
+$white: #fff;
+$black: #000;
+$red: #e74c3c;
+$dark-red: #cc0001;
+$brown: #6e0118;
+$yellow: #fbca67;
+$cyan: #60daaa;
+
+@mixin transition($element: all, $time: .2s, $function: linear) {
+  transition: $element $time $function;
+}
+
+@mixin alpha-attribute($attribute, $color, $background) {
+  $percent: alpha($color) * 100%;
+  $opaque: opacify($color, 1);
+  $solid-color: mix($opaque, $background, $percent);
+  #{$attribute}: $solid-color;
+  #{$attribute}: $color;
+}
+
+@mixin pos-center {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
